@@ -1,25 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import "./App.css";
+import React, { Component } from "react";
+import routes from "./routes";
+import { Switch, Route, BrowserRouter as Router } from "react-router-dom";
+import Menu from "./components/Menu/Menu";
+class App extends Component {
+  render() {
+    return (
+      <Router>
+        <div className="main-background">
+          <Menu />
+          <div className="container-fluid">
+            <div className="row">{this.showContentMenus(routes)}</div>
+          </div>
+        </div>
+      </Router>
+    );
+  }
+  showContentMenus = (routes) => {
+    let result = null;
+    if (routes.length > 0) {
+      result = routes.map((route, index) => {
+        return (
+          <Route
+            key={index}
+            path={route.path}
+            exact={route.exact}
+            component={route.main}
+          />
+        );
+      });
+    }
+    return <Switch> {result}</Switch>;
+  };
 }
 
 export default App;

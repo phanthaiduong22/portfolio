@@ -1,0 +1,23 @@
+.mainHome {
+}
+
+.forest {
+  background-image: url("../../../public/images/forest/Layer_0000.png");
+  background-repeat: repeat-x;
+  height: 100%;
+  border: 3px solid #73ad21;
+  animation: mymove 5s infinite;
+}
+
+.forest-absolute {
+  position: absolute;
+}
+
+@keyframes mymove {
+  0% {
+    left: 100%;
+  }
+  100% {
+    left: 0;
+  }
+}
