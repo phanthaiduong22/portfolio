@@ -1,3 +1,6 @@
+.mainRoute {
+  position: absolute;
+}
 .mainHome {
   width: 100%;
   /* position: relative; */
@@ -5,21 +8,22 @@
 
 .forest {
   position: relative;
-  width: 1000px;
+  top: 50px;
+  width: 5000px;
   height: 1000px;
   animation: moveleft 5s infinite;
 }
 
 .forest-absolute {
   position: absolute;
-  left: 0;
+  left: 0px;
   bottom: 0px;
   width: 1000px;
   height: 1000px;
 }
 
 .flyright {
-  position: relative;
+  /* position: relative; */
   animation: moveright 5s infinite;
 }
 
@@ -28,15 +32,15 @@
     left: 0;
   }
   100% {
-    left: -100%;
+    left: 100%;
   }
 }
 
 @keyframes moveleft {
   0% {
-    left: 100%;
+    left: 0;
   }
   100% {
-    left: 0;
+    left: -100%;
   }
 }

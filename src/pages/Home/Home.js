@@ -1,44 +1,21 @@
-import React, { Component } from "react";
+import React from "react";
 import "./Home.css";
-import { Transition, animated } from "react-spring/renderprops";
-import {
-  HashRouter as Router,
-  Switch,
-  Route,
-  Link,
-  Redirect,
-} from "react-router-dom";
-// const Home = ({ style }) => {
-//   return (
-//     <div className="mainHome" style={{ ...style, background: `#ef5350` }}>
-//       <div
-//         className="flyright"
-//         style={{
-//           width: "auto",
-//           height: "230px",
-//           backgroundImage: `url(../../assets/images/cloud.png)`,
-//           backgroundRepeat: "repeat-x",
-//         }}
-//       ></div>
-//       <div className="forest">{showForest()}</div>
-//     </div>
-//   );
-// };
+import { animated } from "react-spring/renderprops";
 
 const Home = ({ style }) => {
-  console.log(style);
   return (
-    <animated.div className="mainRoute" style={{ ...style  }}>
-      <div
-        className="flyright"
-        style={{
-          width: "auto",
-          height: "230px",
-          backgroundImage: `url(../../assets/images/cloud.png)`,
-          backgroundRepeat: "repeat-x",
-        }}
-      ></div>
-      <div className="forest">{showForest()}</div>
+    <animated.div className="mainRoute" style={{ ...style }}>
+      <div className="mainHome">
+        <div
+          className="flyright"
+          style={{
+            width: "auto",
+            height: "230px",
+            backgroundImage: `url(../../assets/images/cloud.png)`,
+          }}
+        />
+        <div className="forest">{showForest()}</div>
+      </div>
     </animated.div>
   );
 };
@@ -57,7 +34,6 @@ const showForest = () => {
         key={number}
         style={{
           backgroundImage: `url(../../assets/images/forest/Layer_000${number}.png)`,
-          backgroundRepeat: "repeat-x",
         }}
       />
     );
