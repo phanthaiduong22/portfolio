@@ -1,11 +1,19 @@
 .mainHome {
+  position: relative;
+}
+
+.testabc {
+  width: 500px;
+  height: 500px;
 }
 
 .forest {
-  background-image: url("../../../public/images/forest/Layer_0000.png");
+  border: 5px solid red;
+  bottom: 0px;
   background-repeat: repeat-x;
   height: 100%;
   border: 3px solid #73ad21;
+  padding: 5px;
   animation: mymove 5s infinite;
 }
 

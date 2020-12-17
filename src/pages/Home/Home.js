@@ -1,10 +1,18 @@
 import React, { Component } from "react";
 import "./Home.css";
-
+import test from "../../assets/images/forest/10.png";
+var test1 = require("../../assets/images/forest/10.png");
 class Home extends Component {
   render() {
     return (
-      <div class="mainHome">
+      <div className="mainHome">
+        <div
+          className="testabc"
+          style={{
+            // backgroundImage: `url(${test})`,
+            backgroundImage: `url(${test})`,
+          }}
+        />
         <div className="forest">{this.showForest()}</div>
       </div>
     );
@@ -18,11 +26,13 @@ class Home extends Component {
     console.log(numbers);
     result = numbers.map((number) => {
       return (
-        <img
-          src={`../images/forest/Layer_000${number}.png`}
-          className="forest-absolute"
-          alt="bird"
-        />
+        // <div
+        //   key={number}
+        //   style={{
+        //     backgroundImage: `url(${require(`../../assets/images/forest/Layer_000${number}.png`)}`,
+        //   }}
+        // />
+        <div></div>
       );
     });
     return result;
