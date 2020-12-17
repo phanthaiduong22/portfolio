@@ -1,42 +1,68 @@
 import React, { Component } from "react";
 import "./Home.css";
-import test from "../../assets/images/forest/10.png";
-var test1 = require("../../assets/images/forest/10.png");
-class Home extends Component {
-  render() {
-    return (
-      <div className="mainHome">
-        <div
-          className="testabc"
-          style={{
-            // backgroundImage: `url(${test})`,
-            backgroundImage: `url(${test})`,
-          }}
-        />
-        <div className="forest">{this.showForest()}</div>
-      </div>
-    );
+import { Transition, animated } from "react-spring/renderprops";
+import {
+  HashRouter as Router,
+  Switch,
+  Route,
+  Link,
+  Redirect,
+} from "react-router-dom";
+// const Home = ({ style }) => {
+//   return (
+//     <div className="mainHome" style={{ ...style, background: `#ef5350` }}>
+//       <div
+//         className="flyright"
+//         style={{
+//           width: "auto",
+//           height: "230px",
+//           backgroundImage: `url(../../assets/images/cloud.png)`,
+//           backgroundRepeat: "repeat-x",
+//         }}
+//       ></div>
+//       <div className="forest">{showForest()}</div>
+//     </div>
+//   );
+// };
+
+const Home = ({ style }) => {
+  console.log(style);
+  return (
+    <animated.div className="mainRoute" style={{ ...style  }}>
+      <div
+        className="flyright"
+        style={{
+          width: "auto",
+          height: "230px",
+          backgroundImage: `url(../../assets/images/cloud.png)`,
+          backgroundRepeat: "repeat-x",
+        }}
+      ></div>
+      <div className="forest">{showForest()}</div>
+    </animated.div>
+  );
+};
+
+const showForest = () => {
+  let result = null;
+  let numbers = [];
+  for (let i = 0; i < 9; ++i) {
+    numbers.push(i);
   }
-  showForest = () => {
-    let result = null;
-    let numbers = [];
-    for (let i = 0; i < 8; ++i) {
-      numbers.push(i);
-    }
-    console.log(numbers);
-    result = numbers.map((number) => {
-      return (
-        // <div
-        //   key={number}
-        //   style={{
-        //     backgroundImage: `url(${require(`../../assets/images/forest/Layer_000${number}.png`)}`,
-        //   }}
-        // />
-        <div></div>
-      );
-    });
-    return result;
-  };
-}
+  console.log(numbers);
+  result = numbers.map((number) => {
+    return (
+      <div
+        className="forest-absolute"
+        key={number}
+        style={{
+          backgroundImage: `url(../../assets/images/forest/Layer_000${number}.png)`,
+          backgroundRepeat: "repeat-x",
+        }}
+      />
+    );
+  });
+  return result;
+};
 
 export default Home;

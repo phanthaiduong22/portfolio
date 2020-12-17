@@ -1,27 +1,38 @@
 .mainHome {
-  position: relative;
-}
-
-.testabc {
-  width: 500px;
-  height: 500px;
+  width: 100%;
+  /* position: relative; */
 }
 
 .forest {
-  border: 5px solid red;
-  bottom: 0px;
-  background-repeat: repeat-x;
-  height: 100%;
-  border: 3px solid #73ad21;
-  padding: 5px;
-  animation: mymove 5s infinite;
+  position: relative;
+  width: 1000px;
+  height: 1000px;
+  animation: moveleft 5s infinite;
 }
 
 .forest-absolute {
   position: absolute;
+  left: 0;
+  bottom: 0px;
+  width: 1000px;
+  height: 1000px;
 }
 
-@keyframes mymove {
+.flyright {
+  position: relative;
+  animation: moveright 5s infinite;
+}
+
+@keyframes moveright {
+  0% {
+    left: 0;
+  }
+  100% {
+    left: -100%;
+  }
+}
+
+@keyframes moveleft {
   0% {
     left: 100%;
   }

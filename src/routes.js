@@ -8,22 +8,30 @@ const routes = [
   {
     path: "/",
     exact: true,
-    main: () => <Home />,
+    main: ({ style }) => {
+      return <Home style={style} />;
+    },
   },
   {
     path: "/aboutme",
     exact: true,
-    main: () => <AboutMe />,
+    main: ({ style }) => {
+      return <AboutMe style={style} />;
+    },
   },
   {
     path: "/projects",
     exact: false,
-    main: () => <Projects />,
+    main: ({ style }) => {
+      return <Projects style={style} />;
+    },
   },
   {
     path: "",
     exact: false,
-    main: () => <NotFound />,
+    main: ({ style }) => {
+      return <NotFound style={style} />;
+    },
   },
 ];
 
