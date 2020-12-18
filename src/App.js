@@ -1,11 +1,6 @@
 import React from "react";
-import { Transition, animated } from "react-spring/renderprops";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Redirect,
-} from "react-router-dom";
+import { Transition } from "react-spring/renderprops";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Menu from "./components/Menu/Menu";
 import AboutMe from "./pages/AboutMe/AboutMe";
 import Home from "./pages/Home/Home";
@@ -27,7 +22,7 @@ const App = () => (
             >
               {(loc, state) => (style) => (
                 <Switch location={state === "update" ? location : loc}>
-                  <Route path="/" render={() => Home({ style })} />
+                  <Route path="/" render={() => Home({ style })} exact />
                   <Route path="/aboutme" render={() => AboutMe({ style })} />
                   <Route path="/projects" render={() => AboutMe({ style })} />
                   <Route

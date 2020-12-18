@@ -4,6 +4,21 @@
 .riptide {
   color: #81e6d9;
   margin-bottom: 30px;
+  margin-top: 50px;
+}
+
+.logo {
+  vertical-align: middle;
+  text-align: center;
+  font-size: large;
+  color: aliceblue;
+  /* background-color: #81e6d9; */
+  padding: 2vw;
+  margin: 2px;
+  float: left;
+}
+.logo img {
+  width: 75px;
 }
 
 .info {

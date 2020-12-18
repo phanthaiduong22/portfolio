@@ -9,12 +9,17 @@ const Home = ({ style }) => {
         <div
           className="flyright"
           style={{
-            width: "auto",
-            height: "230px",
             backgroundImage: `url(../../assets/images/cloud.png)`,
           }}
         />
         <div className="forest">{showForest()}</div>
+        <div
+          className="narutorun"
+          style={{
+            backgroundImage: `url(../../assets/images/naruto.gif)`,
+            backgroundRepeat: "no-repeat",
+          }}
+        />
       </div>
     </animated.div>
   );
@@ -23,7 +28,7 @@ const Home = ({ style }) => {
 const showForest = () => {
   let result = null;
   let numbers = [];
-  for (let i = 0; i < 9; ++i) {
+  for (let i = 9; i >= 0; --i) {
     numbers.push(i);
   }
   console.log(numbers);
