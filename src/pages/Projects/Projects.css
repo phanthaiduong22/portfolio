@@ -1,14 +1,22 @@
-.main > div {
-  cursor: pointer;
+.mainRoute {
   position: absolute;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  color: white;
-  font-family: Kanit, sans-serif;
-  font-weight: 800;
-  font-size: 10em;
-  will-change: transform, opacity;
+  color: #d6d6d6;
+}
+
+a.button {
+  background-color: #222831;
+  border: 4px solid #d6d6d6;
+  font-weight: bolder;
+  color: #d6d6d6;
+  padding: 2vh 4vh;
+  text-align: center;
+  display: inline-block;
+  font-size: 16px;
+  margin: 2vh;
+  cursor: pointer;
+}
+
+a.button:hover {
+  background-color: #cacacb;
+  color: #2f343d;
 }

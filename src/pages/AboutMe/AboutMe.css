@@ -3,25 +3,57 @@
 }
 .riptide {
   color: #81e6d9;
-  margin-bottom: 30px;
-  margin-top: 50px;
+  margin-bottom: 3vh;
+  margin-top: 5vh;
+}
+
+.info {
+  /* background-col or: khaki; */
+  width: 30vw;
+  margin-left: 15vh;
+  margin-top: 4vh;
+  float: left;
+}
+
+.allLogo {
+  width: 50vw;
+  height: 40vh;
+  margin-left: 15vh;
+  margin-top: 4vh;
+  float: left;
+}
+
+.resume {
+  margin-left: 15vh;
+  float: left;
 }
 
 .logo {
   vertical-align: middle;
   text-align: center;
-  font-size: large;
-  color: aliceblue;
-  /* background-color: #81e6d9; */
-  padding: 2vw;
-  margin: 2px;
+  font-size: larger;
+  color: #d6d6d6;
+  padding: 1vw;
   float: left;
 }
 .logo img {
-  width: 75px;
+  width: 7.5vh;
 }
 
-.info {
-  margin-left: 150px;
-  margin-top: 100px;
+a.button {
+  background-color: #222831;
+  border: 4px solid #d6d6d6;
+  font-weight: bolder;
+  color: #d6d6d6;
+  padding: 2vh 4vh;
+  text-align: center;
+  display: inline-block;
+  font-size: 16px;
+  margin: 2vh;
+  cursor: pointer;
+}
+
+a.button:hover {
+  background-color: #cacacb;
+  color: #2f343d;
 }
