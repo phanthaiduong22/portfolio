@@ -1,14 +1,15 @@
 import React from "react";
 import "./Projects.css";
 import { animated } from "react-spring/renderprops";
+import { Link } from "react-router-dom";
 
 const Projects = ({ style }) => {
   return (
     <animated.div className="mainRoute" style={{ ...style }}>
       <div>hello from project</div>
-      <a href="http://localhost:3000/projects/terminal" className="button">
+      <Link to="projects/terminal" className="button">
         Terminal
-      </a>
+      </Link>
     </animated.div>
   );
 };

@@ -1,16 +1,12 @@
-import React from "react";
+import React, { Component } from "react";
 import "./Terminal.css";
-
-import { Component } from "react";
-
 //redux
 import { connect } from "react-redux";
-import { actGetWork } from "../../actions/index";
 
 class Terminal extends Component {
   constructor(props) {
     super(props);
-    this.state = { value: "" };
+    this.state = { value: "", info: this.props.info };
 
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -19,11 +15,12 @@ class Terminal extends Component {
   handleChange(event) {
     this.setState({ value: event.target.value });
   }
-  handleSubmit(event) {
-    alert("A name was submitted: " + this.state.value);
-    event.preventDefault();
-  }
 
+  handleSubmit(event) {
+    event.preventDefault();
+    let { value, info } = this.state;
+    console.log(value, info);
+  }
   render() {
     return (
       <div className="terminal">
@@ -32,18 +29,24 @@ class Terminal extends Component {
         <div className="terminalCommand">
           <p className="resumeText">~/resume$</p>
         </div>
-        <input
-          type="Type Command Here"
-          value={this.state.value}
-          onChange={this.handleChange}
-        />
+        <form onSubmit={this.handleSubmit}>
+          <label>
+            <input
+              type="text"
+              value={this.state.value}
+              onChange={this.handleChange}
+            />
+          </label>
+          <input type="submit" value="Submit" />
+        </form>
       </div>
     );
   }
 }
+
 const mapStateToProps = (state) => {
   return {
-    works: state.works,
+    info: state.info,
   };
 };
 

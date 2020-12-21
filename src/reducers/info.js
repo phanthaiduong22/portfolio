@@ -1,4 +1,4 @@
-import * as Types from "../constants/ActionTypes";
+// import * as Types from "../constants/ActionTypes";
 
 let initialState = {
   works: [
@@ -48,10 +48,10 @@ let initialState = {
 
 const info = (state = initialState, action) => {
   switch (action.type) {
-    case Types.GET_WORK:
-      return state.works;
-    case Types.GET_AWARD:
-      return state.awards;
+    // case Types.GET_WORK:
+    //   return state.works;
+    // case Types.GET_AWARD:
+    //   return state.awards;
     default:
       return state;
   }

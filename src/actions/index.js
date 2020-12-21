@@ -1,8 +1,8 @@
-import * as Types from "../constants/ActionTypes";
+// import * as Types from "../constants/ActionTypes";
 
-export const actGetWorks = (work) => {
-  return {
-    type: Types.GET_WORK,
-    work,
-  };
-};
+// export const actGetWorks = (work) => {
+//   return {
+//     type: Types.GET_WORK,
+//     work,
+//   };
+// };

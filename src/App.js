@@ -5,7 +5,7 @@ import Menu from "./components/Menu/Menu";
 import AboutMe from "./pages/AboutMe/AboutMe";
 import Home from "./pages/Home/Home";
 import Projects from "./pages/Projects/Projects";
-import Terminal from "./pages/Terminal/Terminal";
+import TerminalAnimation from "./pages/Terminal/TerminalAnimation";
 
 const App = () => (
   <Router>
@@ -38,7 +38,8 @@ const App = () => (
                   />
                   <Route
                     path="/projects/terminal"
-                    render={() => Terminal({ style })}
+                    // render={Terminal}
+                    render={() => TerminalAnimation({ style })}
                     exact
                   />
                   <Route
