@@ -1,37 +1,60 @@
-import "./App.css";
-import React, { Component } from "react";
-import routes from "./routes";
-import { Switch, Route, BrowserRouter as Router } from "react-router-dom";
+import React from "react";
+import { Transition } from "react-spring/renderprops";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Menu from "./components/Menu/Menu";
-class App extends Component {
-  render() {
-    return (
-      <Router>
-        <div className="main-background">
+import AboutMe from "./pages/AboutMe/AboutMe";
+import Home from "./pages/Home/Home";
+import Projects from "./pages/Projects/Projects";
+import TerminalAnimation from "./pages/Terminal/TerminalAnimation";
+
+const App = () => (
+  <Router>
+    <Route
+      render={({ location, ...rest }) => (
+        <div>
+          {/* <Route exact path="/" render={() => <Redirect to="/home" />} /> */}
           <Menu />
-          <div className="container-fluid">
-            <div className="row">{this.showContentMenus(routes)}</div>
+          <div>
+            <Transition
+              native
+              items={location}
+              keys={location.pathname.split("/")[1]}
+              from={{ transform: "translateX(100vw)", opacity: 0 }}
+              enter={{ transform: "translateX(0vw)", opacity: 1 }}
+              leave={{ transform: "translateX(-100vw)", opacity: 0 }}
+            >
+              {(loc, state) => (style) => (
+                <Switch location={state === "update" ? location : loc}>
+                  <Route path="/" render={() => Home({ style })} exact />
+                  <Route
+                    path="/aboutme"
+                    render={() => AboutMe({ style })}
+                    exact
+                  />
+                  <Route
+                    path="/projects"
+                    render={() => Projects({ style })}
+                    exact
+                  />
+                  <Route
+                    path="/projects/terminal"
+                    // render={Terminal}
+                    render={() => TerminalAnimation({ style })}
+                    exact
+                  />
+                  <Route
+                    render={() => (
+                      <h1 style={{ color: "#D0C7B2" }}>Page Not Found</h1>
+                    )}
+                  />
+                </Switch>
+              )}
+            </Transition>
           </div>
         </div>
-      </Router>
-    );
-  }
-  showContentMenus = (routes) => {
-    let result = null;
-    if (routes.length > 0) {
-      result = routes.map((route, index) => {
-        return (
-          <Route
-            key={index}
-            path={route.path}
-            exact={route.exact}
-            component={route.main}
-          />
-        );
-      });
-    }
-    return <Switch> {result}</Switch>;
-  };
-}
+      )}
+    />
+  </Router>
+);
 
 export default App;

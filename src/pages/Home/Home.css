@@ -1,31 +1,125 @@
+.mainRoute {
+  position: absolute;
+}
 .mainHome {
-  position: relative;
+  width: 100vw;
+  /* position: relative; */
 }
 
-.testabc {
-  width: 500px;
-  height: 500px;
+.flyright {
+  position: relative;
+  width: 300%;
+  height: 35vh;
+  animation: moveright 25s infinite linear;
 }
 
 .forest {
-  border: 5px solid red;
-  bottom: 0px;
-  background-repeat: repeat-x;
-  height: 100%;
-  border: 3px solid #73ad21;
-  padding: 5px;
-  animation: mymove 5s infinite;
+  position: relative;
+  bottom: 35vh;
 }
 
 .forest-absolute {
   position: absolute;
+  background-size: 110vh auto;
+  left: 0;
+  width: 300%;
+  height: 94vh;
 }
 
-@keyframes mymove {
+.narutorun {
+  position: relative;
+  bottom: -40vh;
+  background-size: 13vh 13vh;
+  height: 13vh;
+  animation: thingtoright 20s infinite linear;
+}
+
+.birdrun {
+  position: relative;
+  bottom: -7vh;
+  background-size: 5vh 3vh;
+  height: 5vh;
+  animation: thingtoleft 30s infinite linear;
+}
+
+.bird1run {
+  position: relative;
+  bottom: 6vh;
+  background-size: 12vh 8vh;
+  height: 12vh;
+  animation: thingtoright 36s infinite linear;
+}
+
+@keyframes thingtoright {
   0% {
-    left: 100%;
+    left: -10%;
   }
   100% {
+    left: 110%;
+  }
+}
+@keyframes thingtoleft {
+  0% {
+    left: 110%;
+  }
+  100% {
+    left: -10%;
+  }
+}
+
+@keyframes moveright {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 0%;
+  }
+}
+
+@keyframes moveleft {
+  0% {
     left: 0;
   }
+  100% {
+    left: -100%;
+  }
+}
+
+.icon {
+  border-radius: 50%;
+  border: 2px solid #61ef61;
+  width: 10px;
+  height: 10px;
+  text-align: center;
+  position: relative;
+  animation: anim-glow 2s ease infinite;
+}
+
+.icon i {
+  border-radius: 50%;
+  border: 2px solid #61ef61;
+  width: 2px;
+  height: 2px;
+  display: inline-block;
+  vertical-align: 6px;
+  background-color: #61ef61;
+}
+
+@keyframes glowing {
+  0% {
+    box-shadow: 0 0 10px #5ca369;
+  }
+  50% {
+    box-shadow: 0 0 30px #5ca369;
+  }
+  100% {
+    box-shadow: 0 0 10px #5ca369;
+  }
+}
+
+.myname {
+  position: fixed;
+  top: 63%;
+  right: 43%;
+  color: #001aff;
 }

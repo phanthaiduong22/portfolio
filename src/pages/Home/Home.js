@@ -1,42 +1,102 @@
-import React, { Component } from "react";
+import React from "react";
 import "./Home.css";
-import test from "../../assets/images/forest/10.png";
-var test1 = require("../../assets/images/forest/10.png");
-class Home extends Component {
-  render() {
-    return (
+import { animated } from "react-spring/renderprops";
+import styled, { keyframes } from "styled-components";
+
+const growing = (color) => keyframes`
+  0% {
+    top: 55%;
+    box-shadow: 0 0 10px ${color};
+  }
+  50% {
+    box-shadow: 0 0 30px ${color};
+    top: 40%;
+  }
+  100% {
+    box-shadow: 0 0 10px ${color};
+    top: 55%;
+  }
+
+`;
+
+const ButtonGrow = styled.div`
+  position: fixed;
+  border-radius: 50%;
+  color: aliceblue;
+  right: ${(props) => props.position};
+  font-weight: bolder;
+  vertical-align: middle;
+  width: 5vh;
+  height: 5vh;
+  align-items: center;
+  background-color: ${(props) => props.color};
+  animation: ${(props) => growing(props.color)} 3000ms infinite linear;
+`;
+
+const Home = ({ style }) => {
+  return (
+    <animated.div className="mainRoute" style={{ ...style }}>
       <div className="mainHome">
         <div
-          className="testabc"
+          className="flyright"
           style={{
-            // backgroundImage: `url(${test})`,
-            backgroundImage: `url(${test})`,
+            backgroundImage: `url(../../assets/images/cloud.png)`,
           }}
         />
-        <div className="forest">{this.showForest()}</div>
+        <div className="forest">{showForest()}</div>
+        <div
+          className="narutorun"
+          style={{
+            backgroundImage: `url(../../assets/images/naruto.gif)`,
+            backgroundRepeat: "no-repeat",
+          }}
+        />
+        <div
+          className="birdrun"
+          style={{
+            backgroundImage: `url(../../assets/images/bird.gif)`,
+            backgroundRepeat: "no-repeat",
+          }}
+        />
+        <div
+          className="bird1run"
+          style={{
+            backgroundImage: `url(../../assets/images/bird1.gif)`,
+            backgroundRepeat: "no-repeat",
+          }}
+        />
+        <ButtonGrow position="59%" color="#5ca369">
+          <h3>{`</>`}</h3>
+        </ButtonGrow>
+        <ButtonGrow position="53%" color="#3182CE" />
+        <ButtonGrow position="47%" color="#718096" />
+        <ButtonGrow position="41%" color="#E4503F" />
+        <h1 className="myname">I'm Duong Phan</h1>
       </div>
-    );
+    </animated.div>
+  );
+};
+
+const showForest = () => {
+  let result = null;
+  let numbers = [];
+  for (let i = 9; i >= 0; --i) {
+    numbers.push(i);
   }
-  showForest = () => {
-    let result = null;
-    let numbers = [];
-    for (let i = 0; i < 8; ++i) {
-      numbers.push(i);
-    }
-    console.log(numbers);
-    result = numbers.map((number) => {
-      return (
-        // <div
-        //   key={number}
-        //   style={{
-        //     backgroundImage: `url(${require(`../../assets/images/forest/Layer_000${number}.png`)}`,
-        //   }}
-        // />
-        <div></div>
-      );
-    });
-    return result;
-  };
-}
+  console.log(numbers);
+  result = numbers.map((number) => {
+    return (
+      <div
+        className="forest-absolute"
+        key={number}
+        style={{
+          backgroundImage: `url(../../assets/images/forest/Layer_000${number}.png)`,
+          animation: `moveleft ${(number + 1) * 10}s infinite linear`,
+        }}
+      />
+    );
+  });
+  return result;
+};
 
 export default Home;
